@@ -16,7 +16,7 @@ def export_to_csv(data,file_name):
     output_file = file_name + file_extension
     header = "time,frequency\n"
     #print "----[python hadoop module]----"
-    with open(output_file,'w') as f:
+    with open(output_file,'wa') as f:
         f.write(header)
         for k, v in data.items():
             #line = "{},{},".format(k[0],k[1])
@@ -42,6 +42,29 @@ def get_os_file_name(file_name):
 # time.strftime('%Y-%m-%d %H:%M:%S')
 # print time.strftime('%H:%M')
 
+
+def five_min_avg(file_name):
+    data = OrderedDict()
+    #create the keys
+
+    total_views = 0
+    total_bytes = 0
+    #get location
+    file_name = get_os_file_name(file_name)
+    #open the file
+    with open(file_name,'r') as f:
+        for line in f:
+            counter, ts, url, flag = line.split(' ')
+            #print ts
+            key = get_key(float(ts))
+            if key in data:
+                data[key] += 1
+            else:
+                data[key] = 1
+
+
+    # write to file
+    export_to_csv(data,"histogram")
 
 
 def main(file_name):
