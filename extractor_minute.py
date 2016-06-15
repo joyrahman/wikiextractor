@@ -10,9 +10,8 @@ from datetime import datetime
 
 def get_key(timestamp):
     time = datetime.fromtimestamp(timestamp)
-    time.strftime('%H:%M')
-    key = "{}".format(time)
-    return key
+    return time.strftime('%H:%M')
+
 
 
 def get_os_file_name(file_name):
