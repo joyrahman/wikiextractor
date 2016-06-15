@@ -6,6 +6,8 @@ counter, timestamp, url, flag
 import sys
 import os
 from datetime import datetime
+from collections import OrderedDict
+
 
 def export_to_csv(data,file_name):
     #print data
@@ -44,7 +46,7 @@ def get_os_file_name(file_name):
 
 def main(file_name):
 
-    data = {}
+    data = OrderedDict()
     #create the keys
 
     total_views = 0
