@@ -41,6 +41,7 @@ def main(file_name):
     with open(file_name,'r') as f:
         for line in f:
             counter, ts, url, flag = line.split(' ')
+            print ts
             key = get_key(ts)
             if key in data:
                 data[key] += 1
