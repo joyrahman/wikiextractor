@@ -16,8 +16,9 @@ def get_key(timestamp):
 
 
 def get_os_file_name(file_name):
-    file_loc = os.path.normpath(os.path.join(os.path.dirname(__file__),file_name))
-
+    #file_loc = os.path.normpath(os.path.join(os.path.dirname(__file__),file_name))
+    path = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
+    file_loc = os.path.join(path,file_name)
     return file_loc
 
 
