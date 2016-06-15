@@ -8,8 +8,8 @@ import os
 from datetime import datetime
 
 
-def get_key(timestamp):
-    time = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+def get_key(ts):
+    time = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     return time.strftime('%H:%M')
 
 
@@ -41,7 +41,7 @@ def main(file_name):
         for line in f:
             counter, ts, url, flag = line.split(' ')
             print ts
-            key = get_key(ts)
+            key = get_key(float(ts))
             if key in data:
                 data[key] += 1
             else:
