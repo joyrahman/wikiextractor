@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 def get_key(ts):
-    time = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    time = datetime.fromtimestamp(ts)
     return time.strftime('%H:%M')
 
 
