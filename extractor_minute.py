@@ -7,6 +7,21 @@ import sys
 import os
 from datetime import datetime
 
+def export_to_csv(data,file_name):
+    #print data
+    file_extension = ".csv"
+
+    output_file = file_name + file_extension
+    header = "time,frequency\n"
+    #print "----[python hadoop module]----"
+    with open(output_file,'w') as f:
+        f.write(header)
+        for k, v in data.items():
+            #line = "{},{},".format(k[0],k[1])
+            line = "{},{}".format(k,v)
+            f.write(line+'\n')
+
+
 
 def get_key(ts):
     time = datetime.fromtimestamp(ts)
@@ -48,9 +63,8 @@ def main(file_name):
                 data[key] = 1
 
     # write to file
-    with open("histogram.csv",'w')as fw:
-        for key,value in data:
-            fw.write("{},{}".format(key,value))
+    export_to_csv(data,"histogram.csv")
+
 
 
     #write to file
