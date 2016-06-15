@@ -65,7 +65,7 @@ def main(file_name):
                 data[key] = 1
 
     # write to file
-    export_to_csv(data,"histogram.csv")
+    export_to_csv(data,"histogram")
 
 
 
