@@ -17,7 +17,7 @@ def export_to_csv(data,file_name):
     header = "time,frequency\n"
     #print "----[python hadoop module]----"
     with open(output_file,'a') as f:
-        f.write(header)
+        #f.write(header)
         for k, v in data.items():
             #line = "{},{},".format(k[0],k[1])
             line = "{},{}".format(k,v)
